@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1762303164203,
+    "nombre": "lau",
+    "apellido": "Peres",
+    "dni": "344444444",
+    "telefono": "111111111",
+    "fechaNac": "2020-11-02",
+    "motivoConsulta": "Hola Hola",
+    "nivelEducativo": "Terciario (en curso)",
+    "gradoCurso": "5",
+    "genero": "Femenino"
+  },
+  {
+    "id": 1762389568828,
+    "nombre": "lorena",
+    "apellido": "pepe",
+    "dni": "5555555555",
+    "telefono": "22222222",
+    "fechaNac": "2025-03-10",
+    "motivoConsulta": "jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj",
+    "nivelEducativo": "Inicial",
+    "gradoCurso": "3",
+    "genero": "femenio"
+  },
+  {
+    "id": 1762390512110,
+    "nombre": "Ana",
+    "apellido": "walterio",
+    "dni": "34477861",
+    "telefono": "011-1525047915",
+    "fechaNac": "2025-10-22",
+    "motivoConsulta": "hhhhhhhhhhhhhhhhhhhhhhhhhh",
+    "nivelEducativo": "inicial",
+    "gradoCurso": "4",
+    "genero": "f"
+  },
+  {
+    "id": 1762390784962,
+    "nombre": "Laura",
+    "apellido": "walterio",
+    "dni": "28525252",
+    "telefono": "1525047915",
+    "fechaNac": "2025-12-31",
+    "motivoConsulta": "hhhhhhhhhhhhhhhhhhhhhhhhhh",
+    "nivelEducativo": "inicial",
+    "gradoCurso": "2",
+    "genero": "f"
+  },
+  {
+    "id": 1762391577272,
+    "nombre": "Laura",
+    "apellido": "Gomez",
+    "dni": "34477861",
+    "telefono": "55555555",
+    "fechaNac": "2025-10-29",
+    "motivoConsulta": "hhhhhhhhhhhhhhhhhhhhhhhhhh",
+    "nivelEducativo": "inicial",
+    "gradoCurso": "8",
+    "genero": "femenino"
+  },
+  {
+    "id": 1762548984475,
+    "nombre": "lau",
+    "apellido": "Peresi",
+    "dni": "344444422",
+    "telefono": "111111111",
+    "fechaNac": "2025-11-04",
+    "motivoConsulta": "akkaakakkaak",
+    "nivelEducativo": "Terciario (completo)",
+    "gradoCurso": "4",
+    "genero": "No contesta"
+  }
+]
