@@ -1,5 +1,5 @@
 import React from "react"
-import PacienteForm from "../components/PacienteForm"
+import PacienteForm from "../../forms/PacienteForm"
 
 function CargarPaciente({ onPacienteCreado }) {
   return (

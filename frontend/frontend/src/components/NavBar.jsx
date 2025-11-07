@@ -5,7 +5,6 @@ function NavBar() {
   return (
     <div className="w-full bg-[#12263a] shadow-md">
       <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
-        {/* LOGO + TÍTULO */}
         <div className="flex items-center gap-3">
           <img
             src="/logo.png"
@@ -16,9 +15,7 @@ function NavBar() {
             Gestor Psicopedagógico
           </span>
         </div>
-
-        {/* LINKS */}
-        <div className="flex gap-4 text-sm md:text-base">
+        <div className="flex gap-3 text-sm md:text-base">
           <NavLink
             to="/"
             end
@@ -30,9 +27,8 @@ function NavBar() {
               }`
             }
           >
-            Cargar paciente
+            Inicio
           </NavLink>
-
           <NavLink
             to="/pacientes"
             className={({ isActive }) =>
@@ -43,7 +39,19 @@ function NavBar() {
               }`
             }
           >
-            Listar pacientes
+            Pacientes
+          </NavLink>
+          <NavLink
+            to="/terapeutas"
+            className={({ isActive }) =>
+              `px-4 py-2 rounded-full transition ${
+                isActive
+                  ? "bg-[#e8f3fb] text-[#12263a]"
+                  : "text-[#e8f3fb] hover:bg-[#3c5a85]"
+              }`
+            }
+          >
+            Terapeutas
           </NavLink>
         </div>
       </nav>

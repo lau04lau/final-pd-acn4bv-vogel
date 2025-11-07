@@ -212,6 +212,45 @@ app.post("/terapeutas", validarTerapeuta, (req, res) => {
   res.status(201).json(nuevo)
 })
 
+app.put("/terapeutas/:id", (req, res) => {
+  const data = readJson(terapeutasFile)
+  const id = Number(req.params.id)
+  const index = data.findIndex(t => t.id === id)
+  if (index === -1) {
+    return res.status(404).json({ error: "Terapeuta no encontrado" })
+  }
+
+  const usuario = (req.body.usuario || "").trim()
+  const contrasenia = (req.body.contrasenia || "").trim()
+
+  if (!usuario || !contrasenia) {
+    return res.status(400).json({ error: "Usuario y contraseña son obligatorios" })
+  }
+
+  const actualizado = {
+    ...data[index],
+    usuario,
+    contrasenia
+  }
+
+  data[index] = actualizado
+  writeJson(terapeutasFile, data)
+  res.json(actualizado)
+})
+
+app.delete("/terapeutas/:id", (req, res) => {
+  const data = readJson(terapeutasFile)
+  const id = Number(req.params.id)
+  const existe = data.some(t => t.id === id)
+  if (!existe) {
+    return res.status(404).json({ error: "Terapeuta no encontrado" })
+  }
+  const filtrados = data.filter(t => t.id !== id)
+  writeJson(terapeutasFile, filtrados)
+  res.json({ ok: true })
+})
+
+
 app.get("/historiales", (req, res) => {
   const data = readJson(historialesFile)
   res.json(data)

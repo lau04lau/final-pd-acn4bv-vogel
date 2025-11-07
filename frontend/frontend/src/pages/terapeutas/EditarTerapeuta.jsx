@@ -1,0 +1,27 @@
+import React from "react"
+import { useParams, useNavigate } from "react-router-dom"
+import TerapeutaForm from "../../forms/TerapeutaForm"
+
+function EditarTerapeuta({ terapeutas, onTerapeutaGuardado }) {
+  const { id } = useParams()
+  const navigate = useNavigate()
+  const terapeuta = terapeutas.find(t => String(t.id) === id)
+
+  const manejarGuardado = () => {
+    onTerapeutaGuardado()
+    navigate("/terapeutas")
+  }
+
+  if (!terapeuta) {
+    return <p className="text-[#ffd1d1]">Terapeuta no encontrado.</p>
+  }
+
+  return (
+    <div className="bg-[#3c5a85] rounded-[14px] p-6 shadow-[0_6px_16px_rgba(0,0,0,0.12)]">
+      <h2 className="text-lg font-semibold mb-6 text-center text-[#edf8f9]">Editar terapeuta</h2>
+      <TerapeutaForm terapeuta={terapeuta} onTerapeutaCreado={manejarGuardado} />
+    </div>
+  )
+}
+
+export default EditarTerapeuta

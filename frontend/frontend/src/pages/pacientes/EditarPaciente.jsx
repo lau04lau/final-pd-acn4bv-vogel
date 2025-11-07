@@ -1,6 +1,6 @@
 import React from "react"
 import { useParams, useNavigate } from "react-router-dom"
-import PacienteForm from "../components/PacienteForm"
+import PacienteForm from "../../forms/PacienteForm"
 
 function EditarPaciente({ pacientes, onPacienteGuardado }) {
   const { id } = useParams()

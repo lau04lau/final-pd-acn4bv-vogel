@@ -1,5 +1,5 @@
 import React from "react"
-import PacienteList from "../components/PacienteList"
+import PacienteList from "../../components/PacienteList"
 
 function ListarPacientes({ pacientes, cargando, error, onEliminar }) {
   return (
