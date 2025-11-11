@@ -301,7 +301,41 @@ app.post("/niveles-educativos", validarNivelEducativo, (req, res) => {
   res.status(201).json(nuevo)
 })
 
+
+app.post("/login-terapeuta", (req, res) => {
+  const usuario = (req.body.usuario || "").trim()
+  const contrasenia = (req.body.contrasenia || "").trim()
+
+  if (!usuario || !contrasenia) {
+    return res.status(400).json({ error: "Usuario y contraseña son obligatorios" })
+  }
+
+  const terapeutas = readJson(terapeutasFile)
+  const terapeuta = terapeutas.find(t => t.usuario === usuario)
+
+  if (!terapeuta) {
+    return res.status(401).json({ error: "Usuario o contraseña incorrectos" })
+  }
+
+  const coincide = bcrypt.compareSync(contrasenia, terapeuta.contrasenia)
+  if (!coincide) {
+    return res.status(401).json({ error: "Usuario o contraseña incorrectos" })
+  }
+
+  res.json({
+    ok: true,
+    terapeuta: {
+      id: terapeuta.id,
+      usuario: terapeuta.usuario
+    }
+  })
+})
+
+
+
 const PORT = 3001
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en http://localhost:${PORT}`)
 })
+
+

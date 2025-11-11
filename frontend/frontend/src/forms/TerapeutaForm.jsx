@@ -42,7 +42,7 @@ function TerapeutaForm({ onTerapeutaCreado, terapeuta }) {
       if (!res.ok) throw new Error(data.error || "Error al guardar terapeuta")
       setMensaje(esEdicion ? "Terapeuta actualizado correctamente" : "Terapeuta agregado correctamente")
       setForm(estadoInicial)
-      onTerapeutaCreado()
+      if (onTerapeutaCreado) onTerapeutaCreado()
     } catch (err) {
       setError(err.message)
     } finally {
@@ -51,8 +51,13 @@ function TerapeutaForm({ onTerapeutaCreado, terapeuta }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3">
-      <InputField label="Usuario" name="usuario" value={form.usuario} onChange={handleChange} />
+    <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto">
+      <InputField
+        label="Usuario"
+        name="usuario"
+        value={form.usuario}
+        onChange={handleChange}
+      />
       <InputField
         label="Contraseña"
         name="contrasenia"
@@ -60,7 +65,8 @@ function TerapeutaForm({ onTerapeutaCreado, terapeuta }) {
         value={form.contrasenia}
         onChange={handleChange}
       />
-      <div className="flex flex-col items-end gap-1 pt-2">
+
+      <div className="flex flex-col items-end gap-1 pt-2 max-w-md mx-auto">
         <button
           type="submit"
           disabled={enviando}

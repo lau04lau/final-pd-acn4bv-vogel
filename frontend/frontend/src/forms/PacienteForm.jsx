@@ -74,21 +74,22 @@ function PacienteForm({ onPacienteCreado, paciente }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3">
+    <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto">
       <InputField label="Nombre" name="nombre" value={form.nombre} onChange={handleChange} />
       <InputField label="Apellido" name="apellido" value={form.apellido} onChange={handleChange} />
-      <InputField label="DNI" name="dni" value={form.dni} onChange={handleChange} type="text" />
-      <InputField label="Teléfono" name="telefono" value={form.telefono} onChange={handleChange} type="text" />
+      <InputField label="DNI" name="dni" type="text" value={form.dni} onChange={handleChange} />
+      <InputField label="Teléfono" name="telefono" type="text" value={form.telefono} onChange={handleChange} />
       <InputField label="Fecha de nacimiento" name="fechaNac" type="date" value={form.fechaNac} onChange={handleChange} />
 
-
-      <div className="flex flex-col gap-1 md:flex-row md:items-center">
-        <label className="md:w-40 md:text-right text-sm font-medium text-[#edf8f9]">Nivel educativo</label>
+      <div className="flex flex-col gap-1 max-w-md mx-auto">
+        <label className="text-sm font-medium text-[#edf8f9] text-left">
+          Nivel educativo
+        </label>
         <select
           name="nivelEducativo"
           value={form.nivelEducativo}
           onChange={handleChange}
-          className="flex-1 px-3 py-2 rounded-full border-2 border-[#edf8f9] bg-[#3d5a80] text-[#edf8f9] outline-none focus:ring-2 focus:ring-[#edf8f9] focus:ring-offset-2 focus:ring-offset-[#3c5a85]"
+          className="w-full px-3 py-2 rounded-xl border-2 border-[#edf8f9] bg-[#3d5a80] text-[#edf8f9] outline-none focus:ring-2 focus:ring-[#edf8f9] focus:ring-offset-2 focus:ring-offset-[#3c5a85]"
         >
           <option value="">Seleccionar nivel</option>
           <option value="Inicial (en curso)">Inicial (en curso)</option>
@@ -120,13 +121,15 @@ function PacienteForm({ onPacienteCreado, paciente }) {
         onChange={handleChange}
       />
 
-      <div className="flex flex-col gap-1 md:flex-row md:items-center">
-        <label className="md:w-40 md:text-right text-sm font-medium text-[#edf8f9]">Género</label>
+      <div className="flex flex-col gap-1 max-w-md mx-auto">
+        <label className="text-sm font-medium text-[#edf8f9] text-left">
+          Género
+        </label>
         <select
           name="genero"
           value={form.genero}
           onChange={handleChange}
-          className="flex-1 px-3 py-2 rounded-full border-2 border-[#edf8f9] bg-[#3d5a80] text-[#edf8f9] outline-none focus:ring-2 focus:ring-[#edf8f9] focus:ring-offset-2 focus:ring-offset-[#3c5a85]"
+          className="w-full px-3 py-2 rounded-xl border-2 border-[#edf8f9] bg-[#3d5a80] text-[#edf8f9] outline-none focus:ring-2 focus:ring-[#edf8f9] focus:ring-offset-2 focus:ring-offset-[#3c5a85]"
         >
           <option value="">Seleccionar género</option>
           <option value="Femenino">Femenino</option>
@@ -135,8 +138,9 @@ function PacienteForm({ onPacienteCreado, paciente }) {
         </select>
       </div>
 
-      <div className="flex flex-col gap-1 md:flex-row md:items-start">
-        <label className="md:w-40 md:text-right text-sm font-medium text-[#edf8f9] mt-2">
+      {/* textarea movido al final */}
+      <div className="flex flex-col gap-1 max-w-md mx-auto">
+        <label className="text-sm font-medium text-[#edf8f9] text-left">
           Motivo de consulta
         </label>
         <textarea
@@ -144,12 +148,11 @@ function PacienteForm({ onPacienteCreado, paciente }) {
           value={form.motivoConsulta}
           onChange={handleChange}
           maxLength={500}
-          className="flex-1 px-3 py-2 rounded-xl border-2 border-[#edf8f9] bg-[#3d5a80] text-[#edf8f9] placeholder:text-[#edf8f9aa] outline-none transition resize-none h-24 focus:ring-2 focus:ring-[#edf8f9] focus:ring-offset-2 focus:ring-offset-[#3c5a85]"
+          className="w-full px-3 py-2 rounded-xl border-2 border-[#edf8f9] bg-[#3d5a80] text-[#edf8f9] placeholder:text-[#edf8f9aa] outline-none transition resize-none h-32 focus:ring-2 focus:ring-[#edf8f9] focus:ring-offset-2 focus:ring-offset-[#3c5a85]"
         />
       </div>
 
-
-      <div className="flex flex-col items-end gap-1 pt-2">
+      <div className="flex flex-col items-end gap-1 pt-2 max-w-md mx-auto">
         <button
           type="submit"
           disabled={enviando}
