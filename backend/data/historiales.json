@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1762901532576,
+    "pacienteId": 1762303164203,
+    "terapeutaId": 1762894997877,
+    "fecha": "2025-11-11",
+    "descripcion": "Hola",
+    "tipoRegistro": "Sesión"
+  },
+  {
+    "id": 1762902278302,
+    "pacienteId": 1762303164203,
+    "terapeutaId": 1762894997877,
+    "fecha": "2025-11-11",
+    "descripcion": "jjjjjjjjjjjjjjjjjjjj",
+    "tipoRegistro": "hhh"
+  },
+  {
+    "id": 1762902561203,
+    "pacienteId": 1762303164203,
+    "terapeutaId": 1762894997877,
+    "fecha": "2025-11-11",
+    "descripcion": "nbb",
+    "tipoRegistro": "Sesión"
+  },
+  {
+    "id": 1762902566454,
+    "pacienteId": 1762303164203,
+    "terapeutaId": 1762894997877,
+    "fecha": "2025-11-11",
+    "descripcion": "hhhhhhhhhhhhh",
+    "tipoRegistro": "Primera entrevista"
+  }
+]

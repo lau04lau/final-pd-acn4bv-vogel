@@ -7,28 +7,14 @@ function DetallePaciente({ pacientes }) {
   const paciente = pacientes.find(p => String(p.id) === id)
 
   if (!paciente) {
-    return (
-      <div className="bg-[#3c5a85] rounded-[14px] p-6 shadow-[0_6px_16px_rgba(0,0,0,0.12)]">
-        <h2 className="text-lg font-semibold mb-4 text-center text-[#edf8f9]">
-          Paciente no encontrado
-        </h2>
-        <div className="flex justify-center">
-          <button
-            className="px-5 py-2 rounded-full bg-[#e8f3fb] text-[#12263a] border border-[#cfe3f1] hover:bg-[#d6e8f7] transition"
-            onClick={() => navigate("/pacientes")}
-          >
-            Volver al listado
-          </button>
-        </div>
-      </div>
-    )
+    return <p className="text-[#ffd1d1]">Paciente no encontrado.</p>
   }
 
   return (
-    <div className="bg-[#3c5a85] rounded-[14px] p-6 shadow-[0_6px_16px_rgba(0,0,0,0.12)]">
-      <h2 className="text-lg font-semibold mb-6 text-center text-[#edf8f9]">
+    <div className="bg-[#3c5a85] rounded-[14px] p-6 shadow-[0_6px_16px_rgba(0,0,0,0.12)] space-y-6">
+      <h1 className="text-2xl font-semibold mb-2 text-center text-[#edf8f9]">
         Detalle del paciente
-      </h2>
+      </h1>
 
       <div className="bg-[#ffffff] text-[#12263a] rounded-[12px] p-5 space-y-2">
         <p><span className="font-semibold">Nombre:</span> {paciente.nombre} {paciente.apellido}</p>
@@ -42,19 +28,27 @@ function DetallePaciente({ pacientes }) {
         <p className="whitespace-pre-line">{paciente.motivoConsulta}</p>
       </div>
 
-      <div className="flex justify-end mt-4 gap-2">
+      <div className="flex justify-between items-center">
         <button
           className="px-4 py-2 rounded-full bg-[#e8f3fb] text-[#12263a] border border-[#cfe3f1] hover:bg-[#d6e8f7] text-sm transition"
-          onClick={() => navigate(`/pacientes/editar/${paciente.id}`)}
+          onClick={() => navigate(`/pacientes/${paciente.id}/historial`)}
         >
-          Editar
+          Ver historial
         </button>
-        <button
-          className="px-4 py-2 rounded-full bg-[#e8f3fb] text-[#12263a] border border-[#cfe3f1] hover:bg-[#d6e8f7] text-sm transition"
-          onClick={() => navigate("/pacientes")}
-        >
-          Volver al listado
-        </button>
+        <div className="flex gap-2">
+          <button
+            className="px-4 py-2 rounded-full bg-[#e8f3fb] text-[#12263a] border border-[#cfe3f1] hover:bg-[#d6e8f7] text-sm transition"
+            onClick={() => navigate(`/pacientes/editar/${paciente.id}`)}
+          >
+            Editar
+          </button>
+          <button
+            className="px-4 py-2 rounded-full bg-[#e8f3fb] text-[#12263a] border border-[#cfe3f1] hover:bg-[#d6e8f7] text-sm transition"
+            onClick={() => navigate("/pacientes")}
+          >
+            Volver al listado
+          </button>
+        </div>
       </div>
     </div>
   )

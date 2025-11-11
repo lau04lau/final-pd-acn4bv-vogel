@@ -12,16 +12,20 @@ import EditarTerapeuta from "./pages/terapeutas/EditarTerapeuta"
 import DetalleTerapeuta from "./pages/terapeutas/DetalleTerapeuta"
 import LoginTerapeuta from "./pages/LoginTerapeuta"
 import ProtectedRoute from "./components/ProtectedRoute"
-
+import AgregarHistorial from "./pages/historiales/AgregarHistorial"
+import HistorialPaciente from "./pages/historiales/HistorialPaciente"
 
 function App() {
   const [pacientes, setPacientes] = useState([])
   const [terapeutas, setTerapeutas] = useState([])
+  const [historiales, setHistoriales] = useState([])
   const [cargandoPacientes, setCargandoPacientes] = useState(false)
   const [errorPacientes, setErrorPacientes] = useState("")
   const [cargandoTerapeutas, setCargandoTerapeutas] = useState(false)
   const [errorTerapeutas, setErrorTerapeutas] = useState("")
   const [terapeutaActual, setTerapeutaActual] = useState(null)
+  const [cargandoHistoriales, setCargandoHistoriales] = useState(false)
+  const [errorHistoriales, setErrorHistoriales] = useState("")
   const navigate = useNavigate()
 
   const cargarPacientes = async () => {
@@ -54,12 +58,29 @@ function App() {
     }
   }
 
+  const cargarHistoriales = async () => {
+    try {
+      setCargandoHistoriales(true)
+      setErrorHistoriales("")
+      const res = await fetch("/historiales")
+      if (!res.ok) throw new Error("No se pudieron obtener los historiales")
+      const data = await res.json()
+      setHistoriales(data)
+    } catch (err) {
+      setErrorHistoriales(err.message)
+    } finally {
+      setCargandoHistoriales(false)
+    }
+  }
+
   useEffect(() => {
     cargarPacientes()
     cargarTerapeutas()
+    cargarHistoriales()
   }, [])
 
   const manejarPacienteGuardado = () => cargarPacientes()
+
   const manejarEliminarPaciente = async id => {
     try {
       const res = await fetch(`/pacientes/${id}`, { method: "DELETE" })
@@ -72,6 +93,7 @@ function App() {
   }
 
   const manejarTerapeutaGuardado = () => cargarTerapeutas()
+
   const manejarEliminarTerapeuta = async id => {
     try {
       const res = await fetch(`/terapeutas/${id}`, { method: "DELETE" })
@@ -82,6 +104,8 @@ function App() {
       alert(err.message)
     }
   }
+
+  const manejarHistorialGuardado = () => cargarHistoriales()
 
   const manejarLoginExitoso = terapeuta => {
     setTerapeutaActual(terapeuta)
@@ -155,6 +179,32 @@ function App() {
             />
 
             <Route
+              path="/pacientes/:id/historial"
+              element={
+                <ProtectedRoute isAuth={!!terapeutaActual}>
+                  <HistorialPaciente
+                    pacientes={pacientes}
+                    historiales={historiales}
+                    terapeutaActual={terapeutaActual}
+                  />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/pacientes/:id/historial/nuevo"
+              element={
+                <ProtectedRoute isAuth={!!terapeutaActual}>
+                  <AgregarHistorial
+                    pacientes={pacientes}
+                    terapeutaActual={terapeutaActual}
+                    onHistorialCreado={manejarHistorialGuardado}
+                  />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
               path="/terapeutas"
               element={
                 <ProtectedRoute isAuth={!!terapeutaActual}>
@@ -189,7 +239,6 @@ function App() {
               }
             />
           </Routes>
-
         </div>
       </main>
     </div>
