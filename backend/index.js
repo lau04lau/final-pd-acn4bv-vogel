@@ -1,6 +1,7 @@
 const express = require("express")
 const fs = require("fs")
 const path = require("path")
+const bcrypt = require("bcrypt")
 
 const app = express()
 app.use(express.json())
@@ -24,6 +25,11 @@ function readJson(file) {
 
 function writeJson(file, data) {
   fs.writeFileSync(file, JSON.stringify(data, null, 2))
+}
+
+function cifrarContrasenia(contrasenia) {
+  const salt = bcrypt.genSaltSync(10)
+  return bcrypt.hashSync(contrasenia, salt)
 }
 
 function validarDatosPaciente(body, pacientes, esEdicion, idEditar) {
@@ -202,37 +208,30 @@ app.get("/terapeutas", (req, res) => {
 
 app.post("/terapeutas", validarTerapeuta, (req, res) => {
   const data = readJson(terapeutasFile)
+  const contraseniaCifrada = cifrarContrasenia(req.body.contrasenia)
   const nuevo = {
     id: Date.now(),
     usuario: req.body.usuario,
-    contrasenia: req.body.contrasenia
+    contrasenia: contraseniaCifrada
   }
   data.push(nuevo)
   writeJson(terapeutasFile, data)
   res.status(201).json(nuevo)
 })
 
-app.put("/terapeutas/:id", (req, res) => {
+app.put("/terapeutas/:id", validarTerapeuta, (req, res) => {
   const data = readJson(terapeutasFile)
   const id = Number(req.params.id)
   const index = data.findIndex(t => t.id === id)
   if (index === -1) {
     return res.status(404).json({ error: "Terapeuta no encontrado" })
   }
-
-  const usuario = (req.body.usuario || "").trim()
-  const contrasenia = (req.body.contrasenia || "").trim()
-
-  if (!usuario || !contrasenia) {
-    return res.status(400).json({ error: "Usuario y contraseña son obligatorios" })
-  }
-
+  const contraseniaCifrada = cifrarContrasenia(req.body.contrasenia)
   const actualizado = {
     ...data[index],
-    usuario,
-    contrasenia
+    usuario: req.body.usuario,
+    contrasenia: contraseniaCifrada
   }
-
   data[index] = actualizado
   writeJson(terapeutasFile, data)
   res.json(actualizado)
@@ -249,7 +248,6 @@ app.delete("/terapeutas/:id", (req, res) => {
   writeJson(terapeutasFile, filtrados)
   res.json({ ok: true })
 })
-
 
 app.get("/historiales", (req, res) => {
   const data = readJson(historialesFile)

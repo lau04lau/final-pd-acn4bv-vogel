@@ -9,6 +9,7 @@
   "author": "Laura Vogel",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "express": "^4.19.0"
   }
 }

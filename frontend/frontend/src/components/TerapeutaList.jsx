@@ -10,11 +10,14 @@ function TerapeutaList({ terapeutas, onEliminar }) {
 
   return (
     <div className="max-h-80 overflow-y-auto bg-[#ffffff] text-[#12263a] rounded-[12px] shadow-[0_6px_16px_rgba(0,0,0,0.08)]">
+      <h2 className="text-lg font-semibold text-center text-[#12263a] py-3 border-b border-[#e9eef3] bg-[#f2f6fb] rounded-t-[12px]">
+        Listado de terapeutas
+      </h2>
       <table className="min-w-full text-sm table-fixed">
         <thead>
           <tr className="bg-[#f2f6fb]">
             <th className="px-3 py-2 text-left">Usuario</th>
-            <th className="px-3 py-2 text-left">Acciones</th>
+            <th className="px-3 py-2 text-center w-1/2">Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -28,8 +31,8 @@ function TerapeutaList({ terapeutas, onEliminar }) {
                   {t.usuario}
                 </button>
               </td>
-              <td className="px-3 py-2">
-                <div className="flex gap-2">
+              <td className="px-3 py-2 text-right">
+                <div className="flex justify-center gap-2">
                   <button
                     className="px-3 py-1 rounded-full text-xs bg-[#e8f3fb] text-[#12263a] border border-[#cfe3f1] hover:bg-[#d6e8f7] transition"
                     onClick={() => navigate(`/terapeutas/editar/${t.id}`)}
