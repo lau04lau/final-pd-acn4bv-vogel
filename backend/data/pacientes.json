@@ -6,34 +6,34 @@
     "dni": "344444444",
     "telefono": "111111111",
     "fechaNac": "2020-11-02",
-    "motivoConsulta": "Hola Hola",
-    "nivelEducativo": "Terciario (en curso)",
-    "gradoCurso": "5",
-    "genero": "Femenino"
+    "motivoConsulta": "No puede quedarse sentado ",
+    "nivelEducativo": "Primario (en curso)",
+    "gradoCurso": "1",
+    "genero": "Masculino"
   },
   {
     "id": 1762389568828,
     "nombre": "lorena",
     "apellido": "pepe",
-    "dni": "5555555555",
+    "dni": "545456789",
     "telefono": "22222222",
-    "fechaNac": "2025-03-10",
-    "motivoConsulta": "jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj",
-    "nivelEducativo": "Inicial",
-    "gradoCurso": "3",
-    "genero": "femenio"
+    "fechaNac": "2013-03-10",
+    "motivoConsulta": "Se pierde en las clases, no puede prestar atención",
+    "nivelEducativo": "Secundario (en curso)",
+    "gradoCurso": "1",
+    "genero": "Femenino"
   },
   {
     "id": 1762390512110,
-    "nombre": "Ana",
+    "nombre": "Walter",
     "apellido": "walterio",
-    "dni": "34477861",
-    "telefono": "011-1525047915",
-    "fechaNac": "2025-10-22",
-    "motivoConsulta": "hhhhhhhhhhhhhhhhhhhhhhhhhh",
-    "nivelEducativo": "inicial",
+    "dni": "34477561",
+    "telefono": "1525047915",
+    "fechaNac": "2016-01-22",
+    "motivoConsulta": "Cambio de ciclo escolar, no logra adaptarse",
+    "nivelEducativo": "Primario (en curso)",
     "gradoCurso": "4",
-    "genero": "f"
+    "genero": "Masculino"
   },
   {
     "id": 1762390784962,
@@ -41,9 +41,9 @@
     "apellido": "walterio",
     "dni": "28525252",
     "telefono": "1525047915",
-    "fechaNac": "2025-12-31",
-    "motivoConsulta": "hhhhhhhhhhhhhhhhhhhhhhhhhh",
-    "nivelEducativo": "inicial",
+    "fechaNac": "2018-01-30",
+    "motivoConsulta": "No logra aprender a leer",
+    "nivelEducativo": "Primario (en curso)",
     "gradoCurso": "2",
     "genero": "f"
   },
@@ -53,22 +53,22 @@
     "apellido": "Gomez",
     "dni": "34477861",
     "telefono": "55555555",
-    "fechaNac": "2025-10-29",
-    "motivoConsulta": "hhhhhhhhhhhhhhhhhhhhhhhhhh",
-    "nivelEducativo": "inicial",
-    "gradoCurso": "8",
-    "genero": "femenino"
+    "fechaNac": "2023-01-29",
+    "motivoConsulta": "No logra realizar las propuestas escolares",
+    "nivelEducativo": "Inicial (en curso)",
+    "gradoCurso": "3",
+    "genero": "Femenino"
   },
   {
-    "id": 1762548984475,
-    "nombre": "lau",
-    "apellido": "Peresi",
-    "dni": "344444422",
-    "telefono": "111111111",
-    "fechaNac": "2025-11-04",
-    "motivoConsulta": "akkaakakkaak",
-    "nivelEducativo": "Terciario (completo)",
+    "id": 1762946965681,
+    "nombre": "Laura",
+    "apellido": "Perezi",
+    "dni": "34555678",
+    "telefono": "112323244",
+    "fechaNac": "2020-05-12",
+    "motivoConsulta": "Dificultades para prestar atención",
+    "nivelEducativo": "Inicial (en curso)",
     "gradoCurso": "4",
-    "genero": "No contesta"
+    "genero": "Femenino"
   }
 ]

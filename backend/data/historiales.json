@@ -4,23 +4,15 @@
     "pacienteId": 1762303164203,
     "terapeutaId": 1762894997877,
     "fecha": "2025-11-11",
-    "descripcion": "Hola",
+    "descripcion": "Se pautaron diferentes momentos: juego, trabajo en mesa, hamaca",
     "tipoRegistro": "Sesión"
-  },
-  {
-    "id": 1762902278302,
-    "pacienteId": 1762303164203,
-    "terapeutaId": 1762894997877,
-    "fecha": "2025-11-11",
-    "descripcion": "jjjjjjjjjjjjjjjjjjjj",
-    "tipoRegistro": "hhh"
   },
   {
     "id": 1762902561203,
     "pacienteId": 1762303164203,
     "terapeutaId": 1762894997877,
     "fecha": "2025-11-11",
-    "descripcion": "nbb",
+    "descripcion": "Se realizaron actividades para estimular la atención",
     "tipoRegistro": "Sesión"
   },
   {
@@ -28,7 +20,15 @@
     "pacienteId": 1762303164203,
     "terapeutaId": 1762894997877,
     "fecha": "2025-11-11",
-    "descripcion": "hhhhhhhhhhhhh",
+    "descripcion": "Los padres expresan preocupación porque en la escuela no aprende",
     "tipoRegistro": "Primera entrevista"
+  },
+  {
+    "id": 1762947350579,
+    "pacienteId": 1762303164203,
+    "terapeutaId": 1762894997877,
+    "fecha": "2025-11-12",
+    "descripcion": "Se converso con la familia lo que se viene trabajando en las sesiones",
+    "tipoRegistro": "Reunión con familia"
   }
 ]
